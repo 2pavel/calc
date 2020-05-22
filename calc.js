@@ -3,33 +3,29 @@ function add(a, b) {
     return Number(a) + Number(b);
 }
 function subtract(a, b) {
-    return a - b;
+    return Number(a) - Number(b);
 }
 function multiply(a, b) {
-    return a * b;
+    return Number(a) * Number(b);
 }
 function divide(a, b) {
-    return a / b;
+    return Number(a) / Number(b);
 }
 function sqroot (a) {
-    return Math.sqrt(a);
+    return Math.sqrt(Number(a));
 }
 function operate(a, b, op) {
     switch(op) {
         case '+':
             return add(a, b);
         case '-':
-            subtract(a, b);
-            break;
+            return subtract(a, b);
         case '÷':
-            divide(a, b);
-            break;
+            return divide(a, b);
         case 'squareRoot':
-            sqroot(a, b);
-            break;
+            return sqroot(a, b);
         case '*':
-            multiply(a, b);
-            break;
+            return multiply(a, b);
         default:
             return '69XDDD420';
     }
@@ -40,7 +36,7 @@ const opbtns = document.querySelectorAll('.func');
 const display = document.getElementById('screenbar');
 const equals = document.getElementById('equals');
 const Clear = document.getElementById('clear');
-
+const sqr = document.getElementById('sqroot');
 
 // Operation variables initialization
 let op = undefined;
@@ -68,18 +64,26 @@ opbtns.forEach((button) => {
     button.addEventListener('click', () => {
     a = displayValue;
     (op = button.innerText).toString();
-    display.innerText = '';
     displayValue = '';
     });
+});
+
+sqr.addEventListener('click', () => {
+    display.innerText = sqroot(a);
 });
 
 equals.addEventListener('click', () => {
     display.innerText = '';
     displayValue = '';
     display.innerText = operate(a, b, op);
+    if (a === '' || b === '' || op === undefined) {
+        console.log('That\'s not how you use calculator');
+    }
     console.log(a);
     console.log(b);
     console.log(op);
+    a = '';
+    b = '';
 });
 
 function clear() {
