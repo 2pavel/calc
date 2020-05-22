@@ -1,0 +1,40 @@
+.calccontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 3rem;
+    padding-bottom: 3rem;   
+}
+.inoutput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    color: #33F;
+    width: 380px;
+    height: 100px;
+    padding: 10px;
+    background-color: #66CCFF;
+    font-size: 2rem;
+}
+.buttonsgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(5, 100px);
+}
+#clear {
+    grid-column: 1 / 3;
+}
+#equals {
+    grid-column: 3 / 5;
+}
+body {
+    background-color: #003399;
+}
+button {
+    background-color: #0099CC;
+    border: solid 1px white;
+    font-size: 2.5rem;
+    color: white;
+}
